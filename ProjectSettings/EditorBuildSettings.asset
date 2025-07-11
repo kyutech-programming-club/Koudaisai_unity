@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/DownloadAssets/Shima/Scene/Scene_shima.unity
+    guid: b1b503294362e2944a8067c5727b151b
   m_configObjects: {}
