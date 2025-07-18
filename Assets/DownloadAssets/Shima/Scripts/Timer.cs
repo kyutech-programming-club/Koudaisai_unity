@@ -16,6 +16,5 @@ private TextMeshProUGUI textMeshProUGUI;
     {
         timer += Time.deltaTime;
         textMeshProUGUI.text = (60 - timer).ToString("F0") + "s";
-        Debug.Log(60 - timer + "秒");
     }
 }
