@@ -14,6 +14,10 @@ public class NewBehaviourScript : MonoBehaviour
     private float first_y;
     private Vector2 dic;
     private GameObject player;
+    public SpriteRenderer spriteRenderer;
+    public Sprite sprit1;
+    public Sprite sprit2;
+
 
     void Start()
     {
@@ -56,25 +60,28 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (first_y == 10 || first_y == -10)
             {
+                spriteRenderer.sprite = sprit2;
                 transform.position = new Vector2(Mathf.Sin(y * 2) * 3/2 + first_x, y);
             }
-            else if (first_x == 10 || first_x == -10)
+            else if (first_x == 5 || first_x == -10)
             {
+                spriteRenderer.sprite = sprit2;
                 transform.position = new Vector2(x, Mathf.Sin(x * 2) * 3/2 + first_y);
             }
         }
         else if (rnd == 2)
         {
+            spriteRenderer.sprite = sprit1;
             transform.position = new Vector3(x, y, 0);
         }
-        if (transform.position.x > 12 || transform.position.y > 12 || transform.position.x < -12 || transform.position.y < -12)
+        if (transform.position.x > 6 || transform.position.y > 12 || transform.position.x < -12 || transform.position.y < -12)
         {
             Destroy(this.gameObject);
         }
 
-        if (transform.position.x == 12 && transform.position.y == 12)
+        if (transform.position.x == -12 && transform.position.y == 12)
         {
-            transform.position = new Vector3(12, 12, 0);
+            transform.position = new Vector3(-12, 12, 0);
             rb2d.velocity = new Vector3(0, 0, 0);
         }
        
