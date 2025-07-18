@@ -48,7 +48,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < 12 && transform.position.y < 12 && transform.position.x > -12 && transform.position.y > -12)
+        if (transform.position.x < 21 && transform.position.y < 12 && transform.position.x > -12 && transform.position.y > -12)
             x += 0.01f * dic.x;
             y += 0.01f * dic.y;
         transform.position = new Vector3(x, y, 0);
