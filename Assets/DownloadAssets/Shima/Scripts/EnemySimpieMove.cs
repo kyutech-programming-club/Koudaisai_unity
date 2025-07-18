@@ -17,10 +17,13 @@ public class NewBehaviourScript : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite sprit1;
     public Sprite sprit2;
-
+    public Score score;
+ 
+   public Score.Kigou kigou;
 
     void Start()
     {
+        score = GameObject.Find("ScoreText").GetComponent<Score>();
         x = transform.position.x;
         rb2d = GetComponent<Rigidbody2D>();
         // rb2d.velocity = new Vector2(1, 0);
@@ -60,17 +63,20 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (first_y == 10 || first_y == -10)
             {
+                kigou = Score.Kigou.Star;
                 spriteRenderer.sprite = sprit2;
                 transform.position = new Vector2(Mathf.Sin(y * 2) * 3/2 + first_x, y);
             }
             else if (first_x == 5 || first_x == -10)
             {
+                kigou = Score.Kigou.Star;
                 spriteRenderer.sprite = sprit2;
                 transform.position = new Vector2(x, Mathf.Sin(x * 2) * 3/2 + first_y);
             }
         }
         else if (rnd == 2)
         {
+            kigou = Score.Kigou.Round;
             spriteRenderer.sprite = sprit1;
             transform.position = new Vector3(x, y, 0);
         }
@@ -90,8 +96,9 @@ public class NewBehaviourScript : MonoBehaviour
         {
         if (collision.transform.tag == "Player")
         {
-            SceneManager.LoadScene(1);
-            Debug.Log("Damage");
+            // SceneManager.LoadScene(1);
+            // Debug.Log("Damage");
+            score.AddKigou(kigou);
         }
         }
     }
