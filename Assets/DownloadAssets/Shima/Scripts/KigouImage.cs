@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,13 +22,16 @@ public class KigouImage : MonoBehaviour
     [SerializeField] int thisNumber = 0;
 
     [SerializeField] Score score;
+     [SerializeField] NewScore newscore;
 
     private Image image;
+    private TextMeshProUGUI textMeshProUGUI;
 
     // Start is called before the first frame update
     void Start()
     {
         image = GetComponent<Image>();
+        textMeshProUGUI = transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -37,9 +42,11 @@ public class KigouImage : MonoBehaviour
         {
             foreach (var y in kigouAndImages)
             {
-                if (y.Kigou == score.KigouList[thisNumber])
+                String text = score.KigouList[thisNumber].kigou;
+                if (y.Kigou.ToString() == text)
                 {
                     image.sprite = y.Sprite;
+                    textMeshProUGUI.text = text.Substring(text.Length - 1);
                     break; // 一致する記号が見つかったらループを抜ける
                 }
             }

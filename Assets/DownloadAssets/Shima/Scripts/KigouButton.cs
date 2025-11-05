@@ -27,6 +27,6 @@ public class KigouButton : MonoBehaviour
 
     private void OnClick()
     {
-        score.AddKigou(kigou);
+        // score.AddKigou(kigou);
     }
 }
